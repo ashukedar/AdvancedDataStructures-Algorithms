@@ -86,8 +86,8 @@ class Tree(object):
                 root = None
                 return temp
             temp = self.getMinValueChild(root.right)
-            temp.left = root.left
-            root = temp
+            root.value = temp.value
+            root.right = self.delete(root.right, temp.value)
         
         root.height = 1 + max(self.getHeight(root.left), 
                               self.getHeight(root.right))

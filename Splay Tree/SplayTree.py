@@ -91,5 +91,6 @@ class Tree(object):
             newRoot = None
             return temp
         temp = self.getMinValueChild(newRoot.right)
-        temp.left = newRoot.left
-        return temp
+        newRoot.value = temp.value
+        newRoot.right = self.delete(newRoot.right, temp.value)
+        return newRoot
