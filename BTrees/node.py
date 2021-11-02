@@ -38,3 +38,16 @@ class Node(object):
         if not self.isLeaf:
             del node.children[node.keyCount+1: len(node.children)]
         self.keyCount += 1
+        
+    def traverse(self, depth):
+        for i in range(self.keyCount):
+            if not self.isLeaf:
+                self.children[i].traverse(depth+1)
+            for j in range(depth):
+                 print("\t", end="")
+            print(self.keys[i], end =" ")
+            if not self.isLeaf:
+                print()
+        print()
+        if not self.isLeaf:
+            self.children[self.keyCount].traverse(depth+1)

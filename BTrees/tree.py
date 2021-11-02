@@ -23,3 +23,10 @@ class Tree(object):
             self.root = newRoot
         else:
             self.root.insert(keyToBeInserted)
+
+    def traverse(self):
+        print("Tree current state: ")
+        if not self.root:
+            return
+        self.root.traverse(0)
+        print("")
