@@ -23,3 +23,23 @@ class Tree(object):
             self.root = newRoot
         else:
             self.root.insert(keyToBeInserted)
+
+    def traverse(self):
+        print("Tree current state: ")
+        if not self.root:
+            return
+        self.root.traverse(0)
+        print("")
+
+    def remove(self, keyToBeDeleted):
+        node = self.search(keyToBeDeleted)
+        if not node:
+            return;
+        node.remove(keyToBeDeleted)
+        if self.root.keyCount == 0:
+            temp = self.root
+            if self.root.isLeaf:
+                self.root = None
+            else:
+                self.root = self.root.children[0]
+            del temp;
