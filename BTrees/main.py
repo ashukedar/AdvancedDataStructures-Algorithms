@@ -1,3 +1,4 @@
+import math
 import bisect
 from tree import Tree
 
@@ -13,7 +14,7 @@ def getIntGreaterThan1(inputText):
             print("Invalid Input. Expected inpur: Integer greater than 0")
 
 minDegree = getIntGreaterThan1("Enter the min degree for BTree: ")
-tree = Tree(minDegree)
+tree = Tree(math.ceil(minDegree/2))
 
 while True:
     print("1. Insert Item\n2. Delete Item")
